@@ -14,7 +14,7 @@ public:
         Next = NULL;
     }
 };
-void insertAtTail(Node* &head,int val)
+void insertAtTail(Node *&head,int val)
 {
     Node *newNode = new Node(val);
     if(head ==NULL)
@@ -34,16 +34,17 @@ void insetAtHead(Node *&head,int val)
 
 {
     //step1 :newNode creation
-    Node*newNode = new Node(val);
+    Node *newNode = new Node(val);
     //step2: Update of newNode->Next
     newNode->Next =head;
     //step3 : Update of head
+    head = newNode;
 }
 void display(Node* n)
 {
     while(n!= NULL){
         cout << n->value;
-        if(n-Next!=NULL)
+        if(n->Next!=NULL)
             cout << " -> ";
             n= n->Next;
     }
@@ -69,25 +70,25 @@ int main()
         cin>>choice;
     }
 
-    insertAtTail(head ,1);
-    insertAtTail(head ,5);
-    insertAtTail(head ,8);
-    insertAtTail(head ,9);
+    // insertAtTail(head ,1);
+    // insertAtTail(head ,5);
+    // insertAtTail(head ,8);
+    // insertAtTail(head ,9);
     /*Node* head = new Node();
     Node* second = new Node();
     Node* third = new Node();
     Node* forth = new Node();
     */
 
-    head->value =1;
-    second->value=5;
-    third->value=8;
-    forth->value=9;
+    // head->value =1;
+    // second->value=5;
+    // third->value=8;
+    // forth->value=9;
 
-    head->Next =second;
-    second->Next=third;
-    third->Next=forth;
-    forth->Next=NULL;
+    // head->Next =second;
+    // second->Next=third;
+    // third->Next=forth;
+    // forth->Next=NULL;
 
     display(head);
 

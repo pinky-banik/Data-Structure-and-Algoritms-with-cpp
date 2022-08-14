@@ -6,13 +6,13 @@ class Node
 {
 public:
     int value;
-    Node *Next;
+    Node* Next;
 };
 void display(Node* n)
 {
     while(n!= NULL){
         cout << n->value;
-        if(n-Next!=NULL)
+        if(n->Next !=NULL)
             cout << " -> ";
             n= n->Next;
     }
