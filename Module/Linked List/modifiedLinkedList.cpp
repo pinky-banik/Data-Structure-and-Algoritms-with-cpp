@@ -14,18 +14,30 @@ public:
         Next = NULL;
     }
 };
-void insertAtTail(Node* &head,int val)
+void insertAtTail(Node* &head,int val)// when its not first time we call this function, head is not Null , its the pointer of the previous node
 {
+    cout<<"here we get head "<<head <<"value"<<val<<endl;
     Node *newNode = new Node(val);
+    cout<<"Now we create a newNode calling the constructor and the val as the parameteres of constructor"<<val<<endl;
+    cout<<"So the newNode Is"<<endl<<"newNode {"<<endl<<"value :"<<val<<","<<endl<<"Next: NULL"<<endl<<"}"<<endl;
+    // newNode {
+    //     value : 1,
+    //     Next :Null
+    // }
     if(head ==NULL)
     {
-        head = newNode; 
-         return;
-    }
+        cout<<"At the First time head = newNode"<<endl;
+        cout<< "means head ="<<"newNode {"<<endl<<"value :"<<val<<","<<endl<<"Next: NULL"<<endl<<"}"<<endl<<"and  its return from the if block and do the further operation"<<endl;
 
+        head = newNode; 
+         return; //the first time calling insertAtTail function its return from here and will not do any further operation.
+    }
+    
+    //The codes below will work only when its not the first time we call insertAtTail function
     Node *temp = head;
-    while(temp->Next!= NULL)
-    {
+
+    while(temp->Next!= NULL) // this code will not work at first time calling insertAtTail funciton.. because,, here temp->Next==Null; 
+    { 
         temp = temp->Next;
     }
 
@@ -47,10 +59,13 @@ int main()
     char choice = 'Y';
     while(choice == 'Y')
     {
-        cout <<"Enter the Value: ";
+        cout <<"Enter the Value: ";//
          cin>>n;
+        cout<<"before calling insertAtTail Function "<<"head is"<<head<<endl;
         insertAtTail(head,n);
+        cout<<"After calling insertAtTail Function "<<head<<endl;
         cout<<"Do you want to Continue:(Y/N)";
+        
         cin>>choice;
     }
 
@@ -78,3 +93,5 @@ int main()
 
     return 0;
 }
+//int a=10;
+// int *p = &a;
