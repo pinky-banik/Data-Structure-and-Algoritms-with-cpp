@@ -1,32 +1,72 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
-int main()
-{
-    int m,x;
-    cin>>m>>x;
-    int a[m][x];
-    int freq[10]= {0};
+void inpute_array_2D(int *a, int row, int col) {
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < col; j++) {
+            cin >> *(a + (col * i) + j);
+        }
+    }
+}
 
-    for(int i=0; i<m; i++)
-    {
-        for(int j=0; j<x; j++)
-        {
-            cin>>a[i][j];
+void print_array_2D (int *a, int row, int col) {
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < col; j++) {
+            cout << *(a + (row * i) + j) << " ";
+        }
+        cout << endl;
+    }
+    cout << endl;
+}
+
+
+int main() {
+    int n;
+    cin >> n;
+
+    int a[n][n];
+    inpute_array_2D(*a, n, n);
+
+    int sum = 0;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (i == (n / 2)) {
+                sum += a[i][j];
+            }
         }
     }
 
-    for(int i=0; i<m; i++)
-    {
-        for(int j=0; j<x; j++)
-        {
-            if(freq[a[i][j]] > 0) a[i][j]=-1;
-
-            else freq[a[i][j]]++;
-
-            cout<<a[i][j]<<" ";
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (j == (n / 2) && i != j) {
+                sum += a[i][j];
+            }
         }
-        cout<<endl;
-
     }
+
+    for (int j = 0; j < n; j++) {
+        if (j < (n / 2)) {
+            sum += a[0][j];
+        }
+    }
+
+    for (int j = 0; j < n; j++) {
+        if (j > (n / 2)) {
+            sum += a[n - 1][j];
+        }
+    }
+
+    for (int i = 0; i < n; i++) {
+        if (i > (n / 2)) {
+            sum += a[i][0];
+        }
+    }
+
+    for (int i = 0; i < n; i++) {
+        if (i < (n / 2)) {
+            sum += a[i][n - 1];
+        }
+    }
+
+    cout << sum << endl;
 }
