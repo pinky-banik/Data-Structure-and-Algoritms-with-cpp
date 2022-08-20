@@ -141,8 +141,33 @@ int main()
     cout<<endl<<"Doubly Linked List: ";
     display(head);
     cout<<"Length of the Doubly Linked List: " << countLength(head) << endl;
+//solve by array
+int a[1001],b[1001];
 
 
+    int n;
+	cin>>n;
+    int ans;
+
+	for(int i=1;i<=n;i++)
+	{
+	    cin>>a[i]>>b[i];
+	}
+	for(int i=1;i<=n;i++)
+	{
+	    if(a[i]==0)
+		{
+		    b[ans]=i,a[i]=ans,ans=i;
+		}
+		while(b[ans])
+		{
+		    ans=b[ans];
+		}
+	}
+	for(int i=1;i<=n;i++)
+	{
+	    cout<<a[i]<<" "<<b[i]<<endl;
+	}
     return 0;
 
 }
