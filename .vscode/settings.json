@@ -35,8 +35,9 @@
   //terminal
   "terminal.integrated.fontSize": 16,
   "terminal.integrated.fontWeight": "normal",
-  "workbench.colorCustomizations": {
-  
-  },
-
+  "workbench.colorCustomizations": {},
+  "files.associations": {
+    "iostream": "cpp",
+    "ostream": "cpp"
+  }
 }
